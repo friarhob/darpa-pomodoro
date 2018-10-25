@@ -9,7 +9,7 @@ class Clock extends Component {
       currentTime: new Date().getTime(),
     };
 
-    var x = setInterval(() => {
+    setInterval(() => {
       this.setState({currentTime: new Date().getTime()})
     }, 500);
 

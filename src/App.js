@@ -28,14 +28,14 @@ class App extends Component {
   offsetDelayMinutes(amount)
   {
     this.setState({
-      delayMinutes: (parseInt(this.state.delayMinutes)+amount)
+      delayMinutes: Math.max(0,(parseInt(this.state.delayMinutes)+amount))
     });
   }
 
   updateDelayMinutes(newTime)
   {
     this.setState({
-      delayMinutes: newTime
+      delayMinutes: ((parseInt(newTime)>0)?parseInt(newTime):0)
     });
   }
 
@@ -50,7 +50,7 @@ class App extends Component {
         <main>
           <Clock />
           <a href="#" className="up" onClick={() => this.offsetDelayMinutes(1)}>up</a>
-          <input type="text" value={this.state.delayMinutes} onChange={(e) => this.updateDelayMinutes(e.target.value)}></input>
+          <input type="number" value={this.state.delayMinutes} onChange={(e) => this.updateDelayMinutes(e.target.value)} onFocus={(e)=>{e.target.select()}} onClick={(e)=>{e.target.select()}}></input>
           <a href="#" className="down" onClick={() => this.offsetDelayMinutes(-1)}>down</a>
 
         </main>
