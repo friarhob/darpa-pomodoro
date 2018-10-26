@@ -1,31 +1,94 @@
+@import url('Colours.css');
+
 body
 {
-  /* All font colours were set by defining L as 30% (1-70%) of background
-  colour, as specified on https://www.designworkplan.com/read/signage-and-color-contrast */
-
-  /* Blue */
-  background-color: hsl(201.3,45.1%,53.5%);
-  color: hsl(201.3,45.1%,16.1%);
-
-  /* Green */
-/*  background-color: hsl(162.4,69.4%,69.2%);
-  color: hsl(162.4,69.4%,20.8%);*/
-
-  /* Red */
-/*  background-color: hsl(337.7,16.9%,40.6%);
-  color: hsl(337.7,16.9%,12.2%); */
+  background-color: var(--blue-bg);
+  color: var(--blue-fg);
 }
 
-header
+.App
 {
-
 }
 
-main
+.App > header
 {
+  display: grid;
+  grid-template-columns: auto 80px;
+  min-width: 100%;
+  width: 640px;
+  height: 80px;
 
 }
-footer
+
+.App > header > .Title
+{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  align-content: center;
+  justify-content: center;
+  font-family: Helvetica, sans-serif;
+}
+
+.App > header > .Title > h1
+{
+  margin-bottom: 0px;
+  padding: 0px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.App > header > .Title > h2
+{
+  font-size: 18px;
+  font-style: italic;
+  margin-top: 0px;
+  padding: 0px;
+  text-align: center;
+}
+
+.App > header > .ClockBox
+{
+  background-color: var(--footer-bg);
+  display: grid;
+  grid-template-columns: auto;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  color: var(--footer-strong-fg);
+  border-radius: 10px;
+  border: 1px solid var(--footer-fg);
+  font-family: "Orbitron", monospace;
+}
+
+.App > main
+{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  justify-content: space-around;
+  align-content: center;
+  min-height: 500px;
+}
+
+.App > main > nav
+{
+  display: grid;
+  grid-column-start: 2;
+  grid-row-start: 1;
+  justify-self: stretch;
+  align-self: stretch;
+  grid-row-gap: 10px;
+}
+
+.App > main > article
+{
+  display: grid;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  place-self: center;
+}
+
+.App > footer
 {
   position: fixed;
   width: 100%;
@@ -36,26 +99,26 @@ footer
   text-align: center;
   font-style: italic;
   font-size: 12px;
-  background-color: #93c0d8;
-  color: hsl(201,32%,25%);
+  background-color: var(--footer-bg);
+  color: var(--footer-fg);
   font-family: Arial, sans-serif;
 }
 
-footer > a
+.App > footer > a
 {
   font-weight: bold;
-  color: hsl(201,32%,15%);
+  color: var(--footer-fg-strong);
 }
 
-footer > a:link,
-footer > a:visited
+.App > footer > a:link,
+.App > footer > a:visited
 {
   text-decoration: none;
 }
 
 
-footer > a:hover,
-footer > a:active
+.App > footer > a:hover,
+.App > footer > a:active
 {
   text-decoration: underline;
 }

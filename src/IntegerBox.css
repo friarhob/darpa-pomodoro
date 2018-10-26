@@ -1,0 +1,58 @@
+.IntegerBox
+{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  background-color: var(--footer-bg);
+  border-radius: 10px;
+  border: 1px solid var(--footer-fg);
+}
+
+.IntegerBox > .number
+{
+  display: grid;
+  grid-template-columns: auto auto;
+  font-family: "Orbitron", monospace;
+}
+
+.IntegerBox > .number > .label
+{
+  font-weight: bolder;
+  justify-self: end;
+  padding-right: 5px;
+}
+
+.IntegerBox > .number > .value
+{
+  width: 80px;
+  height: 30px;
+  background-color: inherit;
+  background-blend-mode: lighten;
+  justify-self: center;
+  align-self: center;
+  border: 0;
+  font-size: 30px;
+  height: 50px;
+  font-family: inherit;
+}
+
+.IntegerBox > .buttons
+{
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  font-family: inherit;
+}
+
+.IntegerBox > .buttons > .offset
+{
+  background: transparent;
+  color: inherit;
+  border: none;
+  font-size: 16px;
+  font-family: inherit;
+  text-align: center;
+  align-self: start;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-family: inherit;
+}

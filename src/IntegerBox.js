@@ -1,3 +1,4 @@
+import './IntegerBox.css';
 import React, { Component } from 'react';
 
 class IntegerBox extends Component {
@@ -35,14 +36,18 @@ class IntegerBox extends Component {
   render() {
     return (
       <div className="IntegerBox">
-          <p className="label">{this.props.label}</p>
-          <button className="offset" onClick={() => this.offset(10)}>+10</button>
-          <button className="offset" onClick={() => this.offset(5)}>+5</button>
-          <button className="offset" onClick={() => this.offset(1)}>+1</button>
-          <input className="value" type="number" value={this.state.value} onChange={(e) => {this.update(e);}} onFocus={(e)=>{e.preventDefault(); e.target.select();}} onClick={(e)=>{e.target.select()}}></input>
-          <button className="offset" onClick={() => this.offset(-1)}>-1</button>
-          <button className="offset" onClick={() => this.offset(-5)}>-5</button>
-          <button className="offset" onClick={() => this.offset(-10)}>-10</button>
+          <div className="number">
+            <p className="label">{this.props.label}</p>
+            <input className="value" type="number" value={this.state.value} onChange={(e) => {this.update(e);}} onFocus={(e)=>{e.preventDefault(); e.target.select();}} onClick={(e)=>{e.target.select()}}></input>
+          </div>
+          <div className="buttons">
+            <button className="offset" onClick={() => this.offset(10)}>+10</button>
+            <button className="offset" onClick={() => this.offset(5)}>+5</button>
+            <button className="offset" onClick={() => this.offset(1)}>+1</button>
+            <button className="offset" onClick={() => this.offset(-1)}>-1</button>
+            <button className="offset" onClick={() => this.offset(-5)}>-5</button>
+            <button className="offset" onClick={() => this.offset(-10)}>-10</button>
+          </div>
       </div>
     );
   }

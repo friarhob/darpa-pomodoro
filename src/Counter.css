@@ -1,0 +1,40 @@
+.Counter
+{
+  font-family: "Orbitron", monospace;
+  display: grid;
+  grid-template-rows: 40px 64px 32px;
+  justify-items: center;
+}
+
+.Counter > h1
+{
+  font-weight: bold;
+  font-size: 40px;
+  align-self: end;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.Counter > .display
+{
+  font-weight: bolder;
+  font-size: 64px;
+  align-self: start;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.Counter > .toggle
+{
+  background: transparent;
+  color: inherit;
+  border: none;
+  font-size: 32px;
+  font-family: inherit;
+  align-self: start;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}

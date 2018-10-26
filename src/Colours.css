@@ -1,0 +1,19 @@
+:root
+{
+  /* Main (blue,green,red) font colours were set by defining L as 30% (100%-70%)
+  of background colour, as specified on
+  https://www.designworkplan.com/read/signage-and-color-contrast */
+
+  --blue-bg: hsl(201.3,45.1%,53.5%);
+  --blue-fg: hsl(201.3,45.1%,16.1%);
+
+  --green-bg: hsl(162.4,69.4%,69.2%);
+  --green-fg: hsl(162.4,69.4%,20.8%);
+
+  --red-bg: hsl(337.7,16.9%,40.6%);
+  --red-fg: hsl(337.7,16.9%,12.2%);
+
+  --footer-bg: #93c0d8;
+  --footer-fg: hsl(201,32%,25%);
+  --footer-fg-strong: hsl(201,32%,15%);
+}

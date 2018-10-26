@@ -11,24 +11,7 @@ class App extends Component {
 
     this.state = {
       sessionMinutes: 50,
-      breakMinutes: 10,
-      running: {
-        STOP: 0,
-        WORK: 1,
-        PLAY: 2,
-        LONG: 3,
-        current: 0,
-        properties: [
-          {label: "Work", title: "Click Button to Start"},
-          {label: "Stop", title: "Work Time"},
-          {label: "Stop", title: "Play Time"},
-          {label: "Stop", title: "Long Rest"}
-        ],
-        intervalFunction: null
-      },
-      startTime: 0,
-      endTime: 0,
-      remainingTime: 0
+      breakMinutes: 10
     };
 
     this.offsetSessionMinutes = this.offsetSessionMinutes.bind(this);
@@ -108,10 +91,13 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <h1>DARPA</h1>
-          <h2>DARPA&apos;s Another React-based Pomodoro App</h2>
-
-          <Clock />
+          <div className="Title">
+            <h1>DARPA</h1>
+            <h2>DARPA&apos;s Another React-based Pomodoro App</h2>
+          </div>
+          <div className="ClockBox">
+            <Clock />
+          </div>
         </header>
         <main>
           <nav>

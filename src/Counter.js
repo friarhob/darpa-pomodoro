@@ -1,3 +1,4 @@
+import './Counter.css';
 import React, { Component } from 'react';
 
 class Counter extends Component {
@@ -13,7 +14,7 @@ class Counter extends Component {
         LONG: 3,
         current: 0,
         properties: [
-          {label: "Work", title: "Click Button to Start"},
+          {label: "Work", title: "Click 'Work' to Start"},
           {label: "Stop", title: "Work Time"},
           {label: "Stop", title: "Play Time"},
           {label: "Stop", title: "Long Rest"}
@@ -69,7 +70,7 @@ class Counter extends Component {
     return (
       <div className="Counter">
         <h1>{this.state.running.properties[this.state.running.current].title}</h1>
-        <p>{this.pad(Math.floor(time/(60*60)))}:{this.pad(Math.floor((time%(60*60))/60))}:{this.pad(Math.floor(time%(60)))}</p>
+        <p className="display">{this.pad(Math.floor(time/(60*60)))}:{this.pad(Math.floor((time%(60*60))/60))}:{this.pad(Math.floor(time%(60)))}</p>
         <button className="toggle" onClick={(e) => this.toggleButton(e)}>{this.state.running.properties[this.state.running.current].label}</button>
       </div>
     );
