@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Clock from './Clock.js';
+import TimeLength from './TimeLength.js';
 
 class App extends Component {
   constructor(props)
@@ -8,14 +9,17 @@ class App extends Component {
     super(props);
 
     this.state = {
-      delayMinutes: 50,
+      sessionMinutes: 50,
+      breakMinutes: 10,
       currentTime: new Date().getTime(),
       startTime: new Date().getTime(),
       endTime: new Date().getTime()
     };
 
-    this.offsetDelayMinutes = this.offsetDelayMinutes.bind(this);
-    this.updateDelayMinutes = this.updateDelayMinutes.bind(this);
+    this.offsetSessionMinutes = this.offsetSessionMinutes.bind(this);
+    this.updateSessionMinutes = this.updateSessionMinutes.bind(this);
+    this.offsetBreakMinutes = this.offsetBreakMinutes.bind(this);
+    this.updateBreakMinutes = this.updateBreakMinutes.bind(this);
   }
 
   pad(number)
@@ -25,20 +29,33 @@ class App extends Component {
     return stringNumber;
   }
 
-  offsetDelayMinutes(amount)
+  offsetSessionMinutes(amount)
   {
     this.setState({
-      delayMinutes: Math.max(0,(parseInt(this.state.delayMinutes)+amount))
+      sessionMinutes: Math.max(0,(parseInt(this.state.sessionMinutes)+amount))
     });
   }
 
-  updateDelayMinutes(newTime)
+  updateSessionMinutes(newTime)
   {
     this.setState({
-      delayMinutes: ((parseInt(newTime)>0)?parseInt(newTime):0)
+      sessionMinutes: ((parseInt(newTime)>0)?parseInt(newTime):0)
     });
   }
 
+  offsetBreakMinutes(amount)
+  {
+    this.setState({
+      breakMinutes: Math.max(0,(parseInt(this.state.breakMinutes)+amount))
+    });
+  }
+
+  updateBreakMinutes(newTime)
+  {
+    this.setState({
+      breakMinutes: ((parseInt(newTime)>0)?parseInt(newTime):0)
+    });
+  }
 
   render() {
     return (
@@ -49,9 +66,11 @@ class App extends Component {
         </header>
         <main>
           <Clock />
-          <a href="#" className="up" onClick={() => this.offsetDelayMinutes(1)}>up</a>
-          <input type="number" value={this.state.delayMinutes} onChange={(e) => this.updateDelayMinutes(e.target.value)} onFocus={(e)=>{e.target.select()}} onClick={(e)=>{e.target.select()}}></input>
-          <a href="#" className="down" onClick={() => this.offsetDelayMinutes(-1)}>down</a>
+
+          <TimeLength label='Session time (in minutes)' minutes={this.state.sessionMinutes} offset={this.offsetSessionMinutes} update={this.updateSessionMinutes} />
+          <TimeLength label='Break time (in minutes)' minutes={this.state.breakMinutes} offset={this.offsetBreakMinutes} update={this.updateBreakMinutes} />
+
+          
 
         </main>
         <footer>
