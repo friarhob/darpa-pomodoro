@@ -10,7 +10,8 @@ class Clock extends Component {
     };
 
     setInterval(() => {
-      this.setState({currentTime: new Date().getTime()})
+      var date = new Date().getTime()-(new Date().getTimezoneOffset()*60*1000);
+      this.setState({currentTime: date});
     }, 500);
 
   }
@@ -26,7 +27,7 @@ class Clock extends Component {
     const time = Math.floor((this.state.currentTime%(24*60*60*1000))/1000);
     return (
       <div className="Clock">
-          <p>{this.pad(Math.floor(time/(60*60)))}:{this.pad(Math.floor((time%(60*60))/60))}:{this.pad(Math.floor(time%(60)))} (UTC)</p>
+          <p>{this.pad(Math.floor(time/(60*60)))}:{this.pad(Math.floor((time%(60*60))/60))}:{this.pad(Math.floor(time%(60)))}</p>
       </div>
     );
   }
