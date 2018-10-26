@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Clock from './Clock.js';
-import TimeLength from './TimeLength.js';
+import IntegerBox from './IntegerBox.js';
+import Counter from './Counter.js';
 
 class App extends Component {
   constructor(props)
@@ -104,7 +105,6 @@ class App extends Component {
   }
 
   render() {
-    const time = (this.state.remainingTime%(24*60*60*1000))/1000;
     return (
       <div className="App">
         <header>
@@ -115,13 +115,11 @@ class App extends Component {
         </header>
         <main>
           <nav>
-            <TimeLength label='Work time (in minutes)' minutes={this.state.sessionMinutes} offset={this.offsetSessionMinutes} update={this.updateSessionMinutes} />
-            <TimeLength label='Play time (in minutes)' minutes={this.state.breakMinutes} offset={this.offsetBreakMinutes} update={this.updateBreakMinutes} />
+            <IntegerBox label='Work time (in minutes)' value={this.state.sessionMinutes} offset={this.offsetSessionMinutes} update={this.updateSessionMinutes} />
+            <IntegerBox label='Play time (in minutes)' value={this.state.breakMinutes} offset={this.offsetBreakMinutes} update={this.updateBreakMinutes} />
           </nav>
           <article>
-            <h1>{this.state.running.properties[this.state.running.current].title}</h1>
-            <p>{this.pad(Math.floor(time/(60*60)))}:{this.pad(Math.floor((time%(60*60))/60))}:{this.pad(Math.floor(time%(60)))}</p>
-            <button className="toggle" onClick={(e) => this.toggleButton(e)}>{this.state.running.properties[this.state.running.current].label}</button>
+            <Counter sessionMinutes={this.state.sessionMinutes} breakMinutes={this.state.breakMinutes} />
           </article>
         </main>
         <footer>
