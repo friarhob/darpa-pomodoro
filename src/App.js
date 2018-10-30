@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import './App.css';
-import Clock from './Clock.js';
-import IntegerBox from './IntegerBox.js';
-import Counter from './Counter.js';
+import React, { Component } from "react";
+import "./App.css";
+import Clock from "./Clock.js";
+import IntegerBox from "./IntegerBox.js";
+import Counter from "./Counter.js";
 
 class App extends Component {
-  constructor(props)
-  {
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -18,73 +17,36 @@ class App extends Component {
     this.updateSessionMinutes = this.updateSessionMinutes.bind(this);
     this.offsetBreakMinutes = this.offsetBreakMinutes.bind(this);
     this.updateBreakMinutes = this.updateBreakMinutes.bind(this);
-
-    this.toggleButton = this.toggleButton.bind(this);
   }
 
-  pad(number)
-  {
+  pad(number) {
     var stringNumber = String(number);
-    if(stringNumber.length < 2) stringNumber = "0"+stringNumber;
+    if (stringNumber.length < 2) stringNumber = "0" + stringNumber;
     return stringNumber;
   }
 
-  offsetSessionMinutes(amount)
-  {
+  offsetSessionMinutes(amount) {
     this.setState({
-      sessionMinutes: Math.max(0,(parseInt(this.state.sessionMinutes)+amount))
+      sessionMinutes: Math.max(0, parseInt(this.state.sessionMinutes) + amount)
     });
   }
 
-  updateSessionMinutes(newTime)
-  {
+  updateSessionMinutes(newTime) {
     this.setState({
-      sessionMinutes: ((parseInt(newTime)>0)?parseInt(newTime):0)
+      sessionMinutes: parseInt(newTime) > 0 ? parseInt(newTime) : 0
     });
   }
 
-  offsetBreakMinutes(amount)
-  {
+  offsetBreakMinutes(amount) {
     this.setState({
-      breakMinutes: Math.max(0,(parseInt(this.state.breakMinutes)+amount))
+      breakMinutes: Math.max(0, parseInt(this.state.breakMinutes) + amount)
     });
   }
 
-  updateBreakMinutes(newTime)
-  {
+  updateBreakMinutes(newTime) {
     this.setState({
-      breakMinutes: ((parseInt(newTime)>0)?parseInt(newTime):0)
+      breakMinutes: parseInt(newTime) > 0 ? parseInt(newTime) : 0
     });
-  }
-
-  toggleButton(e)
-  {
-    e.preventDefault();
-    if(this.state.running.current == this.state.running.STOP)
-    {
-      this.state.running.current = this.state.running.PLAY;
-      this.state.running.intervalFunction = setInterval(() => {
-        if(new Date().getTime() > this.state.endTime) {
-          this.setState({
-            endTime: (new Date().getTime())+((this.state.running.current == this.state.running.WORK)?this.state.breakMinutes:this.state.sessionMinutes)*60*1000
-          });
-          this.state.running.current = 3-this.state.running.current;
-        }
-        this.setState({
-          remainingTime: (this.state.endTime - new Date().getTime())
-        });
-      }, 200);
-    }
-    else
-    {
-      this.state.running.current = this.state.running.STOP;
-      clearInterval(this.state.running.intervalFunction);
-      this.state.running.intervalFunction = null;
-      this.setState({
-        endTime: 0,
-        remainingTime: 0
-      });
-    }
   }
 
   render() {
@@ -101,15 +63,35 @@ class App extends Component {
         </header>
         <main>
           <nav>
-            <IntegerBox label='Work time (in minutes)' value={this.state.sessionMinutes} offset={this.offsetSessionMinutes} update={this.updateSessionMinutes} />
-            <IntegerBox label='Play time (in minutes)' value={this.state.breakMinutes} offset={this.offsetBreakMinutes} update={this.updateBreakMinutes} />
+            <IntegerBox
+              label="Work time (in minutes)"
+              value={this.state.sessionMinutes}
+              offset={this.offsetSessionMinutes}
+              update={this.updateSessionMinutes}
+            />
+            <IntegerBox
+              label="Play time (in minutes)"
+              value={this.state.breakMinutes}
+              offset={this.offsetBreakMinutes}
+              update={this.updateBreakMinutes}
+            />
           </nav>
           <article>
-            <Counter sessionMinutes={this.state.sessionMinutes} breakMinutes={this.state.breakMinutes} />
+            <Counter
+              sessionMinutes={this.state.sessionMinutes}
+              breakMinutes={this.state.breakMinutes}
+            />
           </article>
         </main>
         <footer>
-          <a target="_blank" rel="noopener noreferrer" href="https://github.com/friarhob">Friar Hob</a> wishes you all to have a great life!
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/friarhob"
+          >
+            Friar Hob
+          </a>
+          wishes you all to have a great life!
         </footer>
       </div>
     );
