@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/darpa-pomodoro/precache-manifest.4f37370c393b9933f34ebf6b2ae0520c.js"
+  "/darpa-pomodoro/precache-manifest.bd8fc47a76843e791fd9fdc6f9ed0992.js"
 );
 
 workbox.clientsClaim();
