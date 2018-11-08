@@ -19,9 +19,11 @@ class Counter extends Component {
           { label: "Stop", title: "Long Rest" }
         ],
         intervalFunction: null
+
       },
       endTime: 0,
-      remainingTime: 0
+      remainingTime: 0,
+      audio: new Audio("http://soundbible.com/grab.php?id=2190&type=mp3")
     };
 
     this.toggleButton = this.toggleButton.bind(this);
@@ -46,6 +48,7 @@ class Counter extends Component {
         running: Object.assign(state.running, {
           intervalFunction: setInterval(() => {
             if (new Date().getTime() > this.state.endTime) {
+              this.state.audio.play();
               this.setState((state, props) => ({
                 endTime:
                   new Date().getTime() +

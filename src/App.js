@@ -4,7 +4,7 @@ import Clock from "./Clock.js";
 import IntegerBox from "./IntegerBox.js";
 import Counter from "./Counter.js";
 
-const colourClasses = ["blue", "green", "red"];
+const colourClasses = ["blue", "red", "green"];
 
 class App extends Component {
   constructor(props) {

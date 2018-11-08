@@ -9,9 +9,7 @@ You can access an [online version](https://friarhob.github.io/darpa-pomodoro/), 
 ---
 ### To Do List
 
-* Set a bell when changing state (Work/Play)
-* Change background colour when changing state (Work/Play)
-  * Red and green colours are already defined on `Colours.css` file
+* Change background colour of boxes as well when changing state (Work/Play)
 * Create a "Long Rest" state, fully configurable, for dealing with full Pomodoro sessions
 * Save and output time-tracking reports for accountability
 
