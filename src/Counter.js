@@ -62,6 +62,7 @@ class Counter extends Component {
             this.setState({
               remainingTime: this.state.endTime - new Date().getTime()
             });
+            this.props.setColour(this.state.running.current);
           }, 200)
         })
       }));
@@ -75,6 +76,7 @@ class Counter extends Component {
         endTime: 0,
         remainingTime: 0
       }));
+      this.props.setColour(this.state.running.STOP);
     }
   }
 

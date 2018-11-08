@@ -1,13 +1,27 @@
 @import url('Colours.css');
 
-body
+.blue
 {
   background-color: var(--blue-bg);
   color: var(--blue-fg);
 }
 
+.green
+{
+  background-color: var(--green-bg);
+  color: var(--green-fg);
+}
+
+.red
+{
+  background-color: var(--red-bg);
+  color: var(--red-fg);
+}
+
+
 .App
 {
+  height: 100%;
 }
 
 .App > header

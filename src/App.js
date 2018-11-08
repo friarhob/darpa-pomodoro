@@ -4,6 +4,8 @@ import Clock from "./Clock.js";
 import IntegerBox from "./IntegerBox.js";
 import Counter from "./Counter.js";
 
+const colourClasses = ["blue", "green", "red"];
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -17,6 +19,13 @@ class App extends Component {
     this.updateSessionMinutes = this.updateSessionMinutes.bind(this);
     this.offsetBreakMinutes = this.offsetBreakMinutes.bind(this);
     this.updateBreakMinutes = this.updateBreakMinutes.bind(this);
+    this.setColour = this.setColour.bind(this);
+
+    this.setColour(0);
+  }
+
+  setColour(index) {
+    document.body.className = colourClasses[index];
   }
 
   pad(number) {
@@ -80,6 +89,7 @@ class App extends Component {
             <Counter
               sessionMinutes={this.state.sessionMinutes}
               breakMinutes={this.state.breakMinutes}
+              setColour={this.setColour}
             />
           </article>
         </main>
@@ -91,7 +101,7 @@ class App extends Component {
           >
             Friar Hob
           </a>
-          wishes you all to have a great life!
+          &nbsp;wishes you all to have a great life!
         </footer>
       </div>
     );
