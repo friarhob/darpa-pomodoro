@@ -14,6 +14,9 @@ You can access an [online version](https://friarhob.github.io/darpa-pomodoro/), 
 * Save and output time-tracking reports for accountability
 
 ---
+Front Bell Sound by Daniel Simion on [SoundBible](http://soundbible.com/2190-Front-Desk-Bell.html)
+
+---
 Developed using [React](https://reactjs.org/)
 
 Comments and suggestions, feel free to contact me!
